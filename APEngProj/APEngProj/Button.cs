@@ -34,8 +34,44 @@ namespace APEngProj
         bool down;
         public void Update()
         {
-            rectangle = new Rectangle((int)position.X,(int)position.Y,)
+            rectangle = new Rectangle((int)position.X, (int)position.Y, (int)size.X, (int)size.Y);
+            MouseState mouse = Mouse.GetState();
+            oldState = newState;
+            newState = mouse.LeftButton;
+            //This statements makes it so if your hover your mouse over the button it it changes colors
+            if (rectangle.Contains(mouse.Position))
+            {
+                if (color.A == 255)
+                {
+                    down = false;
+                }
 
+                if (color.A == 0)
+                {
+                    down = true;
+                }
+
+                if (down) color.A += 3;
+                else color.A -= 3;
+
+                if (oldState == ButtonState.Released && newState == ButtonState.Pressed)
+                {
+                    OnButtonClicked();
+                }
+
+                else if (color.A < 255)
+                {
+                    color.A += 3;
+                }
+            }
+        }
+        public void setPosition(Vector2 newPosition)
+        {
+            position = newPosition;
+        }
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(texture, rectangle, color);
         }
         public event EventHandler ButtonClicked;
         public void OnButtonClicked()

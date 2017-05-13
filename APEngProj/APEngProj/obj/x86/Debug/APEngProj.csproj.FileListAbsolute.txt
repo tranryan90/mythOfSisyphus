@@ -23,3 +23,5 @@ c:\users\ryan\documents\visual studio 2015\Projects\APEngProj\APEngProj\bin\Wind
 c:\users\ryan\documents\visual studio 2015\Projects\APEngProj\APEngProj\obj\x86\Debug\APEngProj.csprojResolveAssemblyReference.cache
 c:\users\ryan\documents\visual studio 2015\Projects\APEngProj\APEngProj\obj\x86\Debug\APEngProj.exe
 c:\users\ryan\documents\visual studio 2015\Projects\APEngProj\APEngProj\obj\x86\Debug\APEngProj.pdb
+D:\ApEngProj\APEngProj\APEngProj\obj\x86\Debug\APEngProj.exe
+D:\ApEngProj\APEngProj\APEngProj\obj\x86\Debug\APEngProj.pdb
