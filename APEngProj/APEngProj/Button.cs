@@ -76,7 +76,7 @@ namespace APEngProj
         public event EventHandler ButtonClicked;
         public void OnButtonClicked()
         {
-            ButtonClicked?.Invoke(this, EventArgs.Empty);
+            ButtonClicked.Invoke(this, EventArgs.Empty);
         }
     }
 }
