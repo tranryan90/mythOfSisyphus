@@ -57,3 +57,5 @@ C:\Users\Me\Source\Repos\mythOfSisyphus\APEngProj\APEngProj\obj\x86\Debug\APEngP
 C:\Users\Me\Source\Repos\mythOfSisyphus\APEngProj\APEngProj\obj\x86\Debug\APEngProj.application
 C:\Users\Me\Source\Repos\mythOfSisyphus\APEngProj\APEngProj\bin\Windows\x86\Debug\Content\progress.xnb
 C:\Users\Me\Source\Repos\mythOfSisyphus\APEngProj\APEngProj\bin\Windows\x86\Debug\Content\progressFull.xnb
+C:\Users\Ryan\Source\Repos\mythOfSisyphus\APEngProj\APEngProj\obj\x86\Debug\APEngProj.exe
+C:\Users\Ryan\Source\Repos\mythOfSisyphus\APEngProj\APEngProj\obj\x86\Debug\APEngProj.pdb
