@@ -18,7 +18,6 @@ namespace APEngProj
     {
         public static GraphicsDeviceManager graphicsMger;
         public static SpriteBatch spriteBatch;
-        public static Dictionary<string, Texture2D> Textures2D;
         public static AnimatedSprite sisyphus;
         public static Texture2D hill;
         public static Texture2D boulder;
@@ -43,7 +42,6 @@ namespace APEngProj
         /// </summary>
         protected override void Initialize()
         {
-            Textures2D = new Dictionary<string, Texture2D>();
             this.IsMouseVisible = true;
             base.Initialize();
             rotation = 0;
