@@ -20,13 +20,18 @@ namespace APEngProj
         public static SpriteBatch spriteBatch;
         public static SpriteBatch Sprites;
         public static Dictionary<string, Texture2D> Textures2D;
+        public static AnimatedSprite sisyphus;
+        public static Texture2D hill;
+        public static Texture2D boulder;
+        public static float rotation;
+        public static int delay;
         public static Dictionary<string, Screen> Screens;
 
         public ScreenManager()
         {
             graphicsMger = new GraphicsDeviceManager(this);
-            graphicsMger.PreferredBackBufferHeight = 800;
-            graphicsMger.PreferredBackBufferWidth = 800;
+            //graphicsMger.PreferredBackBufferHeight = 800;
+            //graphicsMger.PreferredBackBufferWidth = 800;
             Content.RootDirectory = "Content";
             Screens = new Dictionary<string, Screen>();
         }
@@ -43,6 +48,8 @@ namespace APEngProj
             Textures2D = new Dictionary<string, Texture2D>();
             this.IsMouseVisible = true;
             base.Initialize();
+            rotation = 0;
+            delay = 0;
         }
 
         /// <summary>
@@ -60,6 +67,10 @@ namespace APEngProj
 
             base.LoadContent();
             // TODO: use this.Content to load your game content here
+            sisyphus = new AnimatedSprite(Content.Load<Texture2D>("Sisyphus"), 8, 5);
+            hill = Content.Load<Texture2D>("hill");
+            boulder = Content.Load<Texture2D>("boulder");
+
         }
 
         /// <summary>
@@ -82,6 +93,13 @@ namespace APEngProj
             //going to add so if you click cer
 
             // TODO: Add your update logic here
+            sisyphus.Update();
+            delay++;
+            if (delay == 60)
+            {
+                rotation += MathHelper.Pi / 15;
+                delay = 20;
+            }
 
             base.Update(gameTime);
         }
@@ -95,6 +113,13 @@ namespace APEngProj
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            spriteBatch.Begin();
+
+            spriteBatch.Draw(hill, new Vector2(0, 0), Color.White);
+            spriteBatch.Draw(boulder, new Vector2(528, 220), new Rectangle(0, 0, 128, 128), Color.White, rotation, new Vector2(64, 64), 1.0f, SpriteEffects.None, 0f);
+            sisyphus.Draw(spriteBatch, new Vector2(400, 200));
+
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
