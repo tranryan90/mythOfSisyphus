@@ -31,8 +31,6 @@ namespace APEngProj
         public ScreenManager()
         {
             graphicsMger = new GraphicsDeviceManager(this);
-            //graphicsMger.PreferredBackBufferHeight = 800;
-            //graphicsMger.PreferredBackBufferWidth = 800;
             Content.RootDirectory = "Content";
             Screens = new Dictionary<string, Screen>();
         }
@@ -45,7 +43,6 @@ namespace APEngProj
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
             Textures2D = new Dictionary<string, Texture2D>();
             this.IsMouseVisible = true;
             base.Initialize();
@@ -67,7 +64,7 @@ namespace APEngProj
             //Adding screens to the dictionary
 
             base.LoadContent();
-            // TODO: use this.Content to load your game content here
+
             sisyphus = new AnimatedSprite(Content.Load<Texture2D>("Sisyphus"), 8, 5);
             hill = Content.Load<Texture2D>("hill");
             boulder = Content.Load<Texture2D>("boulder");
@@ -91,8 +88,6 @@ namespace APEngProj
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            Console.WriteLine(gameTime.ElapsedGameTime);
-            // TODO: Add your update logic here
             newState = Keyboard.GetState();
 
             if (oldState.IsKeyUp(Keys.Space) && newState.IsKeyDown(Keys.Space))
@@ -102,7 +97,7 @@ namespace APEngProj
             {
                 timeSinceSpace += gameTime.ElapsedGameTime.Milliseconds;
             }
-            //Console.WriteLine(timeSinceSpace);
+
             if (timeSinceSpace < 200)
             {
                 sisyphus.Update();
@@ -129,7 +124,6 @@ namespace APEngProj
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
             spriteBatch.Begin();
 
             spriteBatch.Draw(hill, new Vector2(-hillOffset * 8f / 3f, -480 + hillOffset), Color.White);
