@@ -5,8 +5,8 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("APEngProj")]
-[assembly: AssemblyProduct("APEngProj")]
+[assembly: AssemblyTitle("Myth of Sisyphus")]
+[assembly: AssemblyProduct("Myth of Sisyphus")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyCompany("")]
