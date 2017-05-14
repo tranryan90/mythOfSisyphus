@@ -21,10 +21,13 @@ namespace APEngProj
         public static AnimatedSprite sisyphus;
         public static Texture2D hill;
         public static Texture2D boulder;
+        public static Texture2D progressBar;
+        public static Texture2D progressBarFull;
         public static KeyboardState oldState, newState;
         public static float rotation;
         public static int hillOffset;
         public static float timeSinceSpace;
+        public static float progress;
         public static Dictionary<string, Screen> Screens;
 
         public ScreenManager()
@@ -46,6 +49,7 @@ namespace APEngProj
             base.Initialize();
             rotation = 0;
             hillOffset = 0;
+            progress = 0;
         }
 
         /// <summary>
@@ -66,6 +70,8 @@ namespace APEngProj
             sisyphus = new AnimatedSprite(Content.Load<Texture2D>("Sisyphus"), 8, 5);
             hill = Content.Load<Texture2D>("hill");
             boulder = Content.Load<Texture2D>("boulder");
+            progressBar = Content.Load<Texture2D>("progress");
+            progressBarFull = Content.Load<Texture2D>("progressFull");
 
         }
 
@@ -98,6 +104,7 @@ namespace APEngProj
 
             if (timeSinceSpace < 200)
             {
+                progress += gameTime.ElapsedGameTime.Milliseconds;
                 sisyphus.Update();
 
                 rotation += MathHelper.Pi / 200;
@@ -127,7 +134,8 @@ namespace APEngProj
             spriteBatch.Draw(hill, new Vector2(-hillOffset * 8f / 3f, -480 + hillOffset), Color.White);
             spriteBatch.Draw(boulder, new Vector2(528, 220), new Rectangle(0, 0, 128, 128), Color.White, rotation, new Vector2(64, 64), 1.0f, SpriteEffects.None, 0f);
             sisyphus.Draw(spriteBatch, new Vector2(400, 200));
-
+            spriteBatch.Draw(progressBar, new Vector2(200, 420), Color.White);
+            spriteBatch.Draw(progressBarFull, new Vector2(200, 420), new Rectangle(0, 0, (int)(progress / 60000f * 400f), 20), Color.White);
             spriteBatch.End();
 
             base.Draw(gameTime);
